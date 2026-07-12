@@ -1,3 +1,9 @@
+import sys
+import io
+
+
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+
 WATER_PER_KG = 30
 ML_PER_LITER = 1000
 
