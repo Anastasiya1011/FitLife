@@ -4,6 +4,7 @@ import io
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
+
 WATER_PER_KG = 30
 ML_PER_LITER = 1000
 
@@ -40,11 +41,12 @@ water_ml = user_weight * WATER_PER_KG
 water_l = round(water_ml / ML_PER_LITER, 1)
 
 # вывод рекомендаций
-print(f'''
+print(f"""
 Итак, персональные рекомендации готовы!
 {'-' * 50}
 Имя пользователя: {user_name}, возраст: {user_age}
 Твой ИМТ(индекс массы тела): {bmi}
 Рекомендованная норма воды в день: {water_l} л.
 {'-' * 50}
-Расчёт окончен! Будьте здоровы!''')
+Расчёт окончен! Будьте здоровы!
+""")
