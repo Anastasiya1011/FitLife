@@ -2,7 +2,7 @@ WATER_PER_KG = 30
 ML_PER_LITER = 1000
 
 # ввод данных пользователя и проверка на корректность
-while True:    
+while True:
     user_name = input('Привет! Я твой персональный помощник! Как тебя зовут?')
     if user_name != '':
         break
@@ -12,6 +12,7 @@ while True:
 while True:
     user_age = input('Укажите ваш возраст цифрой, например "18"')
     if user_age.isdigit():
+        user_age = int(user_age)
         break
     else:
         print('Вы ввели не цифру')
