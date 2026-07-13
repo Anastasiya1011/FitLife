@@ -42,10 +42,11 @@ water_ml = user_weight * WATER_PER_KG
 water_l = water_ml / ML_PER_LITER
 
 # вывод рекомендаций
-print(f'{'-' * 70}')
+print('-' * 70)
 print('Персональные рекомендации готовы!')
-print(f'Имя: {user_name}, возраст: {user_age})')
-print(f'{'-' * 70}')
+print(f'Имя: {user_name}, возраст: {user_age}')
+print('-' * 70)
 print(f'Твой ИМТ(индекс массы тела): {bmi}')
 print(f'Рекомендуемая норма воды: {water_l:.1f} л. в день')
-print(f'{'-' * 70}\nРасчёт окончен! Будьте здоровы!')
+print('-' * 70)
+print('Расчёт окончен! Будьте здоровы!')
