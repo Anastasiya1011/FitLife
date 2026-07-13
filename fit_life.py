@@ -2,27 +2,34 @@ WATER_PER_KG = 30
 ML_PER_LITER = 1000
 
 # ввод данных пользователя и проверка на корректность
-user_name = input('Привет! Я твой персональный помощник! Как тебя зовут?')
+while True:    
+    user_name = input('Привет! Я твой персональный помощник! Как тебя зовут?')
+    if user_name != '':
+        break
+    else:
+        print('Введите имя')
 
-try:
-    user_age = int(input('Сколько тебе лет?'))
-except ValueError:
-    user_age = int(input('Укажите ваш возраст цифрой, например "18"'))
+while True:
+    user_age = input('Укажите ваш возраст цифрой, например "18"')
+    if user_age.isdigit():
+        break
+    else:
+        print('Вы ввели не цифру')
 
-try:
-    user_weight = float(input('Укажи свой вес в килограммах:'))
-except ValueError:
-    user_weight = float(input('Нужно указать вес в килограммах:'))
+while True:
+    try:
+        user_weight = float(input('Укажи свой вес в килограммах:'))
+        break
+    except ValueError:
+        print('Нужно указать вес в килограммах!')
 
-try:
+while True:
     user_height = input('Теперь добавь свой рост в метрах(например, 1.75):')
-    if '.' not in user_height:
-        raise ValueError
-except ValueError:
-    user_height = float(input(
-        'Используй точку, чтобы указать рост в метрах (например, 1.70):'))
-else:
-    user_height = float(user_height)
+    if '.' in user_height:
+        user_height = float(user_height)
+        break
+    else:
+        print('Используй точку (например, 1.75)')
 
 # расчёт ИМТ с округлением до одного знака после запятой
 bmi = round(user_weight / (user_height ** 2), 1)
@@ -31,15 +38,15 @@ bmi = round(user_weight / (user_height ** 2), 1)
 water_ml = user_weight * WATER_PER_KG
 
 # перевод нормы воды в литры
-water_l = round(water_ml / ML_PER_LITER, 1)
+water_l = water_ml / ML_PER_LITER
 
 # вывод рекомендаций
-print(f"""
+print(f'''
 Итак, персональные рекомендации готовы!
 {'-' * 50}
 Имя пользователя: {user_name}, возраст: {user_age}
 Твой ИМТ(индекс массы тела): {bmi}
-Рекомендованная норма воды в день: {water_l} л.
+Рекомендуемая норма воды: {water_l:.1f} л. в день
 {'-' * 50}
 Расчёт окончен! Будьте здоровы!
-""")
+''')
